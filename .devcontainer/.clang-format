@@ -1,46 +1,21 @@
-# Based on Google style
-BasedOnStyle: Google
-
-# Set a large limit to avoid line wrapping
-ColumnLimit: 0
-
-# Keep include order and style
-IncludeBlocks: Preserve
-SortIncludes: false
-
-# Enforce one initializer per line in constructor
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
-
-# Control indentation and alignment
-AlignConsecutiveAssignments: true
-AlignOperands: true
-AlignConsecutiveDeclarations:
-  Enabled: true
-  AcrossEmptyLines: false
-  AcrossComments: false
-
-# Indent and formatting control
-AccessModifierOffset: -2
+Language: Cpp
+BasedOnStyle: Microsoft
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
-
-# Empty line after function definitions
-SeparateDefinitionBlocks: Always
-
-# Indentation of function declarations/definitions
+ColumnLimit: 130
+SpaceBeforeParens: Never
+ReflowComments: true
+AllowShortBlocksOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
 AlignAfterOpenBracket: Align
-PenaltyBreakBeforeFirstCallParameter: 0
-
-# Control brace usage for functions and blocks
-BreakBeforeBraces: Custom
-BraceWrapping:
-  AfterClass: true
-  AfterControlStatement: false
-  AfterEnum: true
-  AfterFunction: true
-  AfterNamespace: true
-  AfterStruct: true
-  AfterUnion: false
-  BeforeElse: false
-  IndentBraces: false
+AlignTrailingComments: false
+SortIncludes: CaseInsensitive
+IncludeBlocks: Regroup
+PackConstructorInitializers: Never
+PointerAlignment: Left
+QualifierAlignment: Leave
+ReferenceAlignment: Left
+SeparateDefinitionBlocks: Always
+AccessModifierOffset: -2
+BreakBeforeBraces: Allman
