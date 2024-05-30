@@ -66,6 +66,8 @@ USER $USERNAME
 
 WORKDIR /home/ws
 
+COPY .clang-format .
+
 ENV TURTLEBOT3_MODEL=waffle
 ENV GAZEBO_MODEL_PATH=/opt/ros/humble/share/turtlebot3_gazebo/models
 

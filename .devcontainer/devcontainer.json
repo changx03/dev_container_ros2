@@ -13,11 +13,14 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-vscode.cpptools",
-                "ms-vscode.cpptools-themes",
-                "twxs.cmake",
+                "donjayamanne.githistory",
                 "donjayamanne.python-extension-pack",
-                "ms-iot.vscode-ros"
+                "ms-iot.vscode-ros",
+                "ms-vscode.cpptools-themes",
+                "ms-vscode.cpptools",
+                "streetsidesoftware.code-spell-checker",
+                "twxs.cmake",
+                "yzhang.markdown-all-in-one"
             ]
         }
     },
