@@ -16,19 +16,40 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
+# Install additional packages
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository universe
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python3-pip
+RUN apt-get install -y \
+    ca-certificates \
+    curl \
+    git \
+    gpg \
+    libgeographic-dev \
+    libxcb-cursor0 \
+    net-tools \
+    net-tools \
+    picocom \
+    picocom \
+    python3-pip \
+    terminator \
+    vim \
+    wget \
+    xclip
 
-# [Optional] Packages for development only. You don't need to install these on the robot
-RUN ros-humble-desktop \
+# Install NAV2
+RUN apt-get install -y \
     ros-humble-navigation2 \
     ros-humble-nav2-bringup \
+    ros-humble-tf2-ros
+
+# [Optional] Install ROS2 build tool, GUI tool and simulations
+RUN apt-get update && apt-get install -y \
+    ros-humble-desktop \
+    ros-dev-tools \
     ros-humble-turtlebot3* \
     ros-humble-rviz2 \
     ros-humble-turtle-tf2-py \
-    ros-humble-tf2-ros \
     ros-humble-tf2-tools \
     ros-humble-turtlesim
 
