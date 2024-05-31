@@ -13,6 +13,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "charliermarsh.ruff",
                 "donjayamanne.githistory",
                 "donjayamanne.python-extension-pack",
                 "ms-iot.vscode-ros",
