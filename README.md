@@ -2,6 +2,10 @@
 
 Based on: <https://docs.ros.org/en/humble/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html>
 
+## Branch Information
+
+This branch is for using Basler Pylon SDK with Basler cameras. [Download Pylon 7.5.0](https://www2.baslerweb.com/media/downloads/software/pylon_software/pylon-7.5.0.15658_linux-x86_64_setup.tar.gz)
+
 ## How to use it? 
 
 1. Clone your repo into `./src/`, e.g.,
@@ -36,4 +40,3 @@ Based on: <https://docs.ros.org/en/humble/How-To-Guides/Setup-ROS-2-with-VSCode-
 ## Rebuild the container
 
 From **VS Code**, press `F1`(Show all commands), start typing "rebuild" then select "Dev Containers: Rebuild and Reopen in Container"
-
