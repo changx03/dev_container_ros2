@@ -1,15 +1,16 @@
 {
-    "name": "ROS 2 Development Container",
+    "name": "ROS 2 Basler Dev Container",
     "privileged": true,
-    "remoteUser": "rosdev",
+    "remoteUser": "anyone",
     "build": {
         "dockerfile": "Dockerfile",
         "args": {
-            "USERNAME": "rosdev"
-        }
+            "USERNAME": "anyone"
+        },
+        "context": "${localWorkspaceFolder}"
     },
-    "workspaceFolder": "/home/ws",
-    "workspaceMount": "source=${localWorkspaceFolder}/src,target=/home/ws/src,type=bind",
+    "workspaceFolder": "/home/anyone/boxfish",
+    "workspaceMount": "source=${localWorkspaceFolder}/src,target=/home/anyone/boxfish/src,type=bind",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -38,6 +39,5 @@
     "mounts": [
         "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
         "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
-    ],
-    "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
+    ]
 }

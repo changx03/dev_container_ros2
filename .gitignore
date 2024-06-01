@@ -32,3 +32,6 @@ log/
 
 # Ignore the working directory
 src/*
+
+# Ignore Pylon directory
+pylon-7.5.0-linux-x86/

@@ -2,9 +2,32 @@
 
 Based on: <https://docs.ros.org/en/humble/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.html>
 
-## Branch Information
+## Basler camera branch
 
-This branch is for using Basler Pylon SDK with Basler cameras. [Download Pylon 7.5.0](https://www2.baslerweb.com/media/downloads/software/pylon_software/pylon-7.5.0.15658_linux-x86_64_setup.tar.gz)
+This branch is for using Basler Pylon SDK with Basler cameras. [Download Pylon 7.5.0-linux-x86_64_debs](https://www2.baslerweb.com/media/downloads/software/pylon_software/pylon-7.5.0.15658-linux-x86_64_debs.tar.gz)
+
+```bash
+mkdir pylon-7.5.0-linux-x86
+wget https://www2.baslerweb.com/media/downloads/software/pylon_software/pylon-7.5.0.15658-linux-x86_64_debs.tar.gz
+tar -xzvf pylon-7.5.0.15658-linux-x86_64_debs.tar.gz -C ./pylon-7.5.0-linux-x86
+```
+
+### Install Pylon SDK on the host
+
+The `pylon` driver is also required to install on the host device. 
+
+To install on the host:
+
+```bash
+sudo apt update && sudo apt install -y wget
+wget https://www2.baslerweb.com/media/downloads/software/pylon_software/pylon-7.5.0.15658-linux-x86_64_debs.tar.gz
+tar -xzvf ./pylon-7.5.0.15658-linux-x86_64_debs.tar.gz
+sudo apt-get update
+sudo apt-get install -y libgl1-mesa-dri libgl1-mesa-glx libxcb-xinerama0 libxcb-xinput0
+sudo apt-get install -y codemeter_7.40.4997.501_amd64.deb pylon_7.5.0.15658-deb0_amd64.deb
+```
+
+Basler cameras require **USB3.0**. Use `lsusb` to check the connection.
 
 ## How to use it? 
 

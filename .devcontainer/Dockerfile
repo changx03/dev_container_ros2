@@ -33,6 +33,7 @@ RUN apt-get install -y \
     picocom \
     python3-pip \
     terminator \
+    usbutils \
     vim \
     wget \
     xclip
@@ -53,10 +54,23 @@ RUN apt-get update && apt-get install -y \
     ros-humble-tf2-tools \
     ros-humble-turtlesim
 
+# Install Pylon 
+# Dependencies for Pylon
+ENV apt-get update && apt-get install -y \
+    libgl1-mesa-dri \
+    libgl1-mesa-glx \
+    libxcb-xinerama0 \
+    libxcb-xinput0
+
+COPY "pylon-7.5.0-linux-x86" /tmp/
+
+RUN apt-get install -y \
+    /tmp/codemeter_7.40.4997.501_amd64.deb \
+    /tmp/pylon_7.5.0.15658-deb0_amd64.deb
+
 RUN apt-get clean
 
 ENV SHELL /bin/bash
-
 # ********************************************************
 # * Anything else you want to do like clean up goes here *
 # ********************************************************
@@ -64,9 +78,15 @@ ENV SHELL /bin/bash
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
 
-WORKDIR /home/ws
+WORKDIR "/home/$USERNAME/boxfish"
 
-COPY .clang-format .
+RUN mkdir "/home/$USERNAME/Pictures"
+
+# The root directory (`context`) is set to the `localWorkspaceFolder` in `devcontainer.json`
+COPY ".devcontainer/.clang-format" .
+
+# Copy calibration files
+COPY config "/home/$USERNAME/config"
 
 ENV TURTLEBOT3_MODEL=waffle
 ENV GAZEBO_MODEL_PATH=/opt/ros/humble/share/turtlebot3_gazebo/models
