@@ -63,3 +63,8 @@ Basler cameras require **USB3.0**. Use `lsusb` to check the connection.
 ## Rebuild the container
 
 From **VS Code**, press `F1`(Show all commands), start typing "rebuild" then select "Dev Containers: Rebuild and Reopen in Container"
+
+## VS Code settings
+
+- Since the `.vscode` directory is created after all extensions have been installed, we run the copy `c_cpp_properties.json` command at the start of the container (`postStartCommand`).
+- Rebuild is required after updated the `.devcontainer/c_cpp_properties.json` file, as the file is copied in the `Dockerfile`.

@@ -62,7 +62,7 @@ ENV apt-get update && apt-get install -y \
     libxcb-xinerama0 \
     libxcb-xinput0
 
-COPY "pylon-7.5.0-linux-x86" /tmp/
+COPY "pylon-7.5.0-linux-x86" /tmp
 
 RUN apt-get install -y \
     /tmp/codemeter_7.40.4997.501_amd64.deb \
@@ -84,6 +84,8 @@ RUN mkdir "/home/$USERNAME/Pictures"
 
 # The root directory (`context`) is set to the `localWorkspaceFolder` in `devcontainer.json`
 COPY ".devcontainer/.clang-format" .
+COPY ".devcontainer/build.bash" .
+COPY ".devcontainer/c_cpp_properties.json" /tmp
 
 # Copy calibration files
 COPY config "/home/$USERNAME/config"

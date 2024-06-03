@@ -39,5 +39,6 @@
     "mounts": [
         "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
         "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
-    ]
+    ],
+    "postStartCommand": "mkdir -p .vscode && cp /tmp/c_cpp_properties.json .vscode/c_cpp_properties.json"
 }
